@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
+    "lucide-react": "^0.292.0",
     "next": "14.0.2",
     "next-contentlayer": "^0.3.4",
     "react": "^18",
@@ -17,7 +20,9 @@
     "rehype-autolink-headings": "^7.1.0",
     "rehype-pretty-code": "^0.10.2",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@ltwoz/prettier-config": "^1.1.1",
