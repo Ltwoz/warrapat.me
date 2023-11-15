@@ -27,6 +27,8 @@ export default function Navbar() {
         <DropdownMenuContent>
           <DropdownMenuItem>
             <Link href="/projects">Projects</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
             <Link href="/archives">Archives</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
