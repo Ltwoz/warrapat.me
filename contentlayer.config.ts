@@ -7,6 +7,49 @@ import rehypePrettyCode, {
 } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import readingTime from "reading-time";
+
+export const Archive = defineDocumentType(() => ({
+  name: "Archive",
+  filePathPattern: `archives/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    },
+    publishedAt: {
+      type: "date",
+      required: true,
+    },
+    cover: {
+      type: "string",
+      required: true,
+    },
+    color: {
+      type: "string",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+    slugAsParams: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    },
+    readingTime: {
+      type: "json",
+      resolve: (doc) => readingTime(doc.body.raw),
+    },
+  },
+}));
 
 export const Project = defineDocumentType(() => ({
   name: "Project",
@@ -23,7 +66,7 @@ export const Project = defineDocumentType(() => ({
     },
     category: {
       type: "string",
-      required: true
+      required: true,
     },
     url: {
       type: "string",
@@ -61,7 +104,7 @@ export const Project = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Project],
+  documentTypes: [Archive, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
