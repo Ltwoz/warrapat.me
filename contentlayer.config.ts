@@ -22,16 +22,16 @@ export const Archive = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    publishedAt: {
-      type: "date",
-      required: true,
-    },
     cover: {
       type: "string",
       required: true,
     },
     color: {
       type: "string",
+      required: true,
+    },
+    publishedAt: {
+      type: "date",
       required: true,
     },
   },
