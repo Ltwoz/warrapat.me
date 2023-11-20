@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AlignJustify } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -6,15 +7,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { AlignJustify } from "lucide-react";
+
+import Logo from "./logo";
 
 export default function Navbar() {
   return (
     <nav className="flex items-center py-2">
       <Link href="/" className="h-full">
-        <span className="font-bold text-xl flex justify-center items-center">
-          Ltwoz
-        </span>
+        <Logo />
       </Link>
       <div className="hidden md:flex items-center ml-auto gap-4">
         <Link href="/projects">Projects</Link>
