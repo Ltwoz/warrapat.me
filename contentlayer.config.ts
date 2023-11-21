@@ -66,11 +66,9 @@ export const Project = defineDocumentType(() => ({
     },
     url: {
       type: "string",
-      required: true,
     },
-    source: {
+    githubUrl: {
       type: "string",
-      required: true,
     },
     date: {
       type: "string",
@@ -79,6 +77,10 @@ export const Project = defineDocumentType(() => ({
     screenshot: {
       type: "string",
       required: true,
+    },
+    status: {
+      type: "enum",
+      options: ["Archived", "Unmaintained", "Private"],
     },
   },
   computedFields: {

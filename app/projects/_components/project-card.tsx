@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
 import { Project } from "@/.contentlayer/generated";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
   project: Project;
@@ -24,14 +25,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </h3>
       <p className="text-sm text-[#bbbbbb]">{project.description}</p>
       <div className="flex items-center justify-between mt-auto">
-        <div></div>
+        {project.status ? (
+          <Badge variant="neutral">{project.status?.toUpperCase()}</Badge>
+        ) : (
+          <div></div>
+        )}
         <div className="flex items-center gap-3">
-          <a href={project.url} target="_blank" className="hover:text-blue-500">
-            <ExternalLink className="h-4 w-4" />
-          </a>
-          <a href={project.source} target="_blank" className="hover:text-blue-500">
-            <FaGithub className="h-4 w-4" />
-          </a>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              className="hover:text-blue-500"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              className="hover:text-blue-500"
+            >
+              <FaGithub className="h-4 w-4" />
+            </a>
+          )}
         </div>
       </div>
     </div>
