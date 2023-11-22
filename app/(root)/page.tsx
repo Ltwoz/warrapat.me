@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="flex flex-col items-start gap-6 w-full">
-      <section className="space-y-4 text-[#bbbbbb]">
+      <section className="space-y-4 dark:text-neutral-400">
         <h1 className="text-2xl text-white">Warrapat Choedchusakunrat</h1>
         <p>
           I&apos;m a Software Engineering student somewhere in Thailand and a
@@ -19,6 +19,9 @@ export default function Home() {
       </section>
       <section className="space-y-2">
         <h3 className="text-lg">Tools</h3>
+      </section>
+      <section className="space-y-2">
+        <h3 className="text-lg">Find me on</h3>
       </section>
     </div>
   );

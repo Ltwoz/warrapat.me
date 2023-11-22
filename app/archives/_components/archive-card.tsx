@@ -45,7 +45,7 @@ const ColorStyles: Record<string, Record<string, string>> = {
 export default function ArchiveCard({ archive }: ArchiveCardProps) {
   return (
     <Link
-      href={`/archives/${archive.slug}`}
+      href={`${archive.slug}`}
       id={archive.slug}
       className={cn(
         "cursor-pointer h-fit",
@@ -65,12 +65,12 @@ export default function ArchiveCard({ archive }: ArchiveCardProps) {
         >
           {archive.title}
         </h3>
-        <p className="font-semibold text-sm">{archive.description}</p>
+        <p className="font-semibold text-sm dark:text-neutral-300">{archive.description}</p>
         <div className="flex items-center gap-3">
           <Badge variant="secondary" className="gap-1">
             <Calendar className="h-3 w-3" />
             <span className="font-semibold">
-              {new Date(archive.publishedAt).toLocaleString("en-GB", {
+              {new Date(archive.publishedAt).toLocaleString("en-US", {
                 day: "numeric",
                 month: "short",
               })}

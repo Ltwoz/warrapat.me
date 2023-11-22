@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <h3 className="text-lg font-semibold leading-none mt-1">
         {project.title}
       </h3>
-      <p className="text-sm text-[#bbbbbb]">{project.description}</p>
+      <p className="text-sm dark:text-neutral-400">{project.description}</p>
       <div className="flex items-center justify-between mt-auto">
         {project.status ? (
           <Badge variant="neutral">{project.status?.toUpperCase()}</Badge>
