@@ -114,9 +114,6 @@ export default makeSource({
           onVisitHighlightedLine(node) {
             node.properties.className?.push("line--highlighted");
           },
-          onVisitHighlightedChars(node) {
-            node.properties.className = ["word--highlighted"];
-          },
         } satisfies Partial<PrettyCodeOptions>,
       ],
       [

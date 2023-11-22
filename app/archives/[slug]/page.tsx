@@ -50,7 +50,7 @@ export default async function ArchiveSlugPage({
   return (
     <section className="flex flex-col gap-8">
       <ArchiveHeader archive={archive} />
-      <article className="w-full mb-2 prose prose-neutral dark:prose-invert">
+      <article className="w-full mb-2 prose prose-neutral dark:prose-invert prose-code:before:hidden prose-code:after:hidden">
         <Mdx code={archive.body.code} />
       </article>
     </section>
