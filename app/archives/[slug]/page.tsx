@@ -21,20 +21,26 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetaData({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata | undefined> {
   const archive = await getArchiveFromParams(params);
 
-  if (!archive) return;
+  if (!archive) return {};
+
+  const { title, description } = archive;
 
   return {
-    title: archive.title,
-    description: archive.description,
+    title,
+    description,
     creator: "Warrapat Choedchusakunrat",
     publisher: "Warrapat Choedchusakunrat",
+    openGraph: {
+      title,
+      description
+    }
   };
 }
 
