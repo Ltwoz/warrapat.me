@@ -1,3 +1,6 @@
+import Social from "./_components/social";
+import Tools from "./_components/tools";
+
 export default function Home() {
   return (
     <div className="flex flex-col items-start gap-6 w-full">
@@ -6,7 +9,7 @@ export default function Home() {
         <p>
           I&apos;m a Software Engineering student somewhere in Thailand and a
           software developer. I enjoy building things that run on computers and
-          exploring a lot (or a bit) of other tools, languages etc while doing
+          exploring a lot (or a bit) of other tools, languages etc. while doing
           that.
         </p>
         <p>
@@ -17,12 +20,8 @@ export default function Home() {
           build on my GitHub profile.
         </p>
       </section>
-      <section className="space-y-2">
-        <h3 className="text-lg">Tools</h3>
-      </section>
-      <section className="space-y-2">
-        <h3 className="text-lg">Find me on</h3>
-      </section>
+      <Tools />
+      <Social />
     </div>
   );
 }
