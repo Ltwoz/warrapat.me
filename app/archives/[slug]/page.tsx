@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { allArchives } from "@/.contentlayer/generated";
 import ArchiveHeader from "./_components/archive-header";
 import Mdx from "@/components/ui/mdx";
+import { getUrl } from "@/lib/utils";
 
 async function getArchiveFromParams(params: { slug: string }) {
   const archive = allArchives.find(
@@ -30,7 +31,8 @@ export async function generateMetadata({
 
   if (!archive) return {};
 
-  const { title, description } = archive;
+  const { title, description, slug, cover } = archive;
+  const ogImage = cover ? `${getUrl()}/${cover}` : "";
 
   return {
     title,
@@ -39,8 +41,28 @@ export async function generateMetadata({
     publisher: "Warrapat Choedchusakunrat",
     openGraph: {
       title,
-      description
-    }
+      description,
+      type: "article",
+      url: `${getUrl()}/archives/${slug}`,
+      images: [
+        {
+          url: ogImage,
+          alt: title,
+          width: "1200",
+          height: "630",
+        },
+      ],
+    },
+    robots: {
+      index: false,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+      },
+    },
   };
 }
 
