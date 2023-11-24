@@ -5,6 +5,7 @@ import { allArchives } from "@/.contentlayer/generated";
 import ArchiveHeader from "./_components/archive-header";
 import Mdx from "@/components/ui/mdx";
 import { getUrl } from "@/lib/utils";
+import ArchiveBanner from "./_components/archive-banner";
 
 async function getArchiveFromParams(params: { slug: string }) {
   const archive = allArchives.find(
@@ -78,6 +79,16 @@ export default async function ArchiveSlugPage({
   return (
     <section className="flex flex-col gap-8">
       <ArchiveHeader archive={archive} />
+      {archive.cover && (
+        <ArchiveBanner
+          src={archive.cover}
+          alt={archive.title}
+          decoding="async"
+          width={100}
+          height={100}
+          priority
+        />
+      )}
       <article className="w-full mb-2 prose prose-neutral dark:prose-invert prose-code:before:hidden prose-code:after:hidden">
         <Mdx code={archive.body.code} />
       </article>
