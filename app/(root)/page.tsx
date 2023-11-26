@@ -1,9 +1,8 @@
 import Social from "./_components/social";
-import Tools from "./_components/tools";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-start gap-6 w-full">
+    <div className="flex flex-col items-start gap-8 w-full">
       <section className="space-y-4 dark:text-neutral-400">
         <h1 className="text-2xl text-white">Warrapat Choedchusakunrat</h1>
         <p>
@@ -20,7 +19,6 @@ export default function Home() {
           build on my GitHub profile.
         </p>
       </section>
-      <Tools />
       <Social />
     </div>
   );
